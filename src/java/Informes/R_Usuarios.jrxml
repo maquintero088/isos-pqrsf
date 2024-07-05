@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="R_Usuarios" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b48f1e22-221d-4f23-b473-a6795cb64dac">
+	<property name="ireport.zoom" value="1.771561000000003"/>
+	<property name="ireport.x" value="500"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="PieChartDataset" uuid="01326394-8fab-4178-b12f-8bcd39cf7e40"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     usuario.`usu_Id` AS usuario_usu_Id,
+     usuario.`usu_Primernombre` AS usuario_usu_Primernombre,
+     usuario.`usu_Segundonombre` AS usuario_usu_Segundonombre,
+     usuario.`usu_Primerapellido` AS usuario_usu_Primerapellido,
+     usuario.`usu_Segundoapellido` AS usuario_usu_Segundoapellido,
+     usuario.`usu_Fechaingreso` AS usuario_usu_Fechaingreso,
+     usuario.`usu_Correo` AS usuario_usu_Correo,
+     usuario.`usu_Celular` AS usuario_usu_Celular,
+     documento.`doc_Nombre` AS documento_doc_Nombre,
+     genero.`gen_Nombre` AS genero_gen_Nombre,
+     proceso.`pro_Nombre` AS proceso_pro_Nombre,
+     municipio.`mun_Nombre` AS municipio_mun_Nombre,
+     rol.`rol_nombre` AS rol_rol_nombre
+FROM
+     `documento` documento RIGHT OUTER JOIN `usuario` usuario ON documento.`doc_Codigo` = usuario.`fk_doc_Codigo`
+     LEFT OUTER JOIN `genero` genero ON usuario.`fk_gen_Codigo` = genero.`gen_Codigo`
+     LEFT OUTER JOIN `proceso` proceso ON usuario.`fk_pro_Codigo` = proceso.`pro_Codigo`
+     LEFT OUTER JOIN `municipio` municipio ON usuario.`fk_mun_Codigo` = municipio.`mun_Codigo`
+     LEFT OUTER JOIN `rol` rol ON usuario.`fk_rol_Codigo` = rol.`rol_Codigo`]]>
+	</queryString>
+	<field name="usuario_usu_Id" class="java.lang.Long"/>
+	<field name="usuario_usu_Primernombre" class="java.lang.String"/>
+	<field name="usuario_usu_Segundonombre" class="java.lang.String"/>
+	<field name="usuario_usu_Primerapellido" class="java.lang.String"/>
+	<field name="usuario_usu_Segundoapellido" class="java.lang.String"/>
+	<field name="usuario_usu_Fechaingreso" class="java.sql.Timestamp"/>
+	<field name="usuario_usu_Correo" class="java.lang.String"/>
+	<field name="usuario_usu_Celular" class="java.lang.String"/>
+	<field name="documento_doc_Nombre" class="java.lang.String"/>
+	<field name="genero_gen_Nombre" class="java.lang.String"/>
+	<field name="proceso_pro_Nombre" class="java.lang.String"/>
+	<field name="municipio_mun_Nombre" class="java.lang.String"/>
+	<field name="rol_rol_nombre" class="java.lang.String"/>
+	<background>
+		<band height="555" splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="94" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="4" y="0" width="795" height="65" forecolor="#006699" backcolor="#238276" uuid="73ae0715-703b-461d-ad46-cfc935feb912"/>
+				<staticText>
+					<reportElement style="SubTitle" x="315" y="44" width="463" height="21" backcolor="#FC7323" uuid="1327c147-7dea-422f-a071-f1c77ed56fd6"/>
+					<textElement textAlignment="Right">
+						<font fontName="Verdana" size="18" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Usuarios Registrados]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Title" x="311" y="0" width="463" height="44" uuid="9293b201-478b-4289-bfea-3c05df5af065"/>
+					<textElement textAlignment="Right">
+						<font fontName="Verdana" size="36" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Reporte de Usuarios]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="4" y="80" width="798" height="14" backcolor="#FC7323" uuid="d7458502-811c-4afe-9722-524cd68f59cb"/>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="0" y="0" width="43" height="14" forecolor="#000000" uuid="898abcd9-e170-4c6f-89b5-449f21be11fe"/>
+					<textElement textAlignment="Center">
+						<font fontName="Verdana" size="9" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[Número]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="114" y="0" width="156" height="14" forecolor="#000000" uuid="6c329e95-8bda-4f29-be69-9cb7b45b4fbf"/>
+					<textElement textAlignment="Center">
+						<font fontName="Verdana" size="9" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[Nombres y Apellidos]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="270" y="0" width="79" height="14" forecolor="#000000" uuid="63679027-013a-4751-b361-74697f21e4e6"/>
+					<textElement textAlignment="Center">
+						<font fontName="Verdana" size="9" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[Fecha Creación]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="349" y="0" width="82" height="14" forecolor="#000000" uuid="80edf1d2-6ff0-4d56-a981-3f32461e1c72"/>
+					<textElement textAlignment="Center">
+						<font fontName="Verdana" size="9" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[Correo]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="431" y="0" width="91" height="14" forecolor="#000000" uuid="9a2cbba2-406d-46ab-a69f-56f03937d67c"/>
+					<textElement textAlignment="Center">
+						<font fontName="Verdana" size="9" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[Telefono/Celular]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="44" y="0" width="70" height="14" forecolor="#000000" uuid="8de1ed65-d963-47bb-8ab6-8cdf0c7eb49b"/>
+					<textElement textAlignment="Center">
+						<font fontName="Verdana" size="9" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[Documento]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="522" y="0" width="59" height="14" forecolor="#000000" uuid="257b8c16-5c75-43c5-aa7e-33055ec9033b"/>
+					<textElement textAlignment="Center">
+						<font fontName="Verdana" size="9" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[Genero]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="581" y="0" width="90" height="14" forecolor="#000000" uuid="e2092443-8547-494a-a88c-fe2edf0396ca"/>
+					<textElement textAlignment="Center">
+						<font fontName="Verdana" size="9" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[Proceso]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="671" y="0" width="67" height="14" forecolor="#000000" uuid="c94801e6-f4b3-4573-b761-5cc2751df42d"/>
+					<textElement textAlignment="Center">
+						<font fontName="Verdana" size="9" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[Municipio]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="738" y="0" width="60" height="14" forecolor="#000000" uuid="7172f5dd-91e7-4ab9-a1ce-0491778b47fd"/>
+					<textElement textAlignment="Center">
+						<font fontName="Verdana" size="9" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[Rol]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="14" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="4" y="14" width="798" height="1" uuid="1c1ca95e-c352-419f-8a0b-010fa128a5e0"/>
+			</line>
+			<frame>
+				<reportElement x="4" y="-14" width="798" height="28" uuid="b0dc9ba3-7153-4bb0-93e0-8ff0e7daa463"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="0" y="5" width="43" height="14" uuid="537c511f-a937-4299-9309-a62a87ac8a78"/>
+					<textElement textAlignment="Center">
+						<font fontName="Verdana" size="6" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{usuario_usu_Id}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="114" y="5" width="34" height="14" uuid="fef8c844-8cfa-4afc-960e-9cc19b018112"/>
+					<textElement textAlignment="Center">
+						<font fontName="Verdana" size="6" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{usuario_usu_Primernombre}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="148" y="5" width="34" height="14" uuid="581b5b69-a62d-4eab-9073-c498d2f927b4"/>
+					<textElement textAlignment="Center">
+						<font fontName="Verdana" size="6" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{usuario_usu_Segundonombre}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="182" y="5" width="41" height="14" uuid="8f101146-af62-4f65-a982-e980fb17a51c"/>
+					<textElement textAlignment="Center">
+						<font fontName="Verdana" size="6" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{usuario_usu_Primerapellido}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="223" y="5" width="47" height="14" uuid="b048e9de-fb7b-45d7-ad10-7a295c511dc4"/>
+					<textElement textAlignment="Center">
+						<font fontName="Verdana" size="6" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{usuario_usu_Segundoapellido}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="270" y="5" width="79" height="14" uuid="9ab04b99-7f47-4ccc-bb83-42ad4efb89f5"/>
+					<textElement textAlignment="Center">
+						<font fontName="Verdana" size="6" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{usuario_usu_Fechaingreso}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="349" y="5" width="82" height="14" uuid="6147e006-4c02-4af1-8459-b77d23ae7d7d"/>
+					<textElement textAlignment="Center">
+						<font fontName="Verdana" size="6" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{usuario_usu_Correo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="431" y="5" width="91" height="14" uuid="45e2c5a9-ba95-4d34-af15-acd71bd44989"/>
+					<textElement textAlignment="Center">
+						<font fontName="Verdana" size="6" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{usuario_usu_Celular}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="44" y="5" width="70" height="14" uuid="851adbcb-d9fa-4403-9e42-e9f12c22e5e2"/>
+					<textElement textAlignment="Center">
+						<font fontName="Verdana" size="6" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{documento_doc_Nombre}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="522" y="5" width="59" height="14" uuid="f1bea484-5219-41fe-b549-b8dc12352683"/>
+					<textElement textAlignment="Center">
+						<font fontName="Verdana" size="6" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{genero_gen_Nombre}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="581" y="5" width="90" height="14" uuid="78c8b04a-d408-475c-bf72-29190cbfb033"/>
+					<textElement textAlignment="Center">
+						<font fontName="Verdana" size="6" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{proceso_pro_Nombre}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="671" y="5" width="67" height="14" uuid="2cab52f5-9e0c-4976-bed3-7431fa47908b"/>
+					<textElement textAlignment="Center">
+						<font fontName="Verdana" size="6" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{municipio_mun_Nombre}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="738" y="5" width="60" height="14" uuid="03e835a2-3787-40c4-8c80-a8e4386af45e"/>
+					<textElement textAlignment="Center">
+						<font fontName="Verdana" size="6" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{rol_rol_nombre}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="8" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="38d82441-8ce7-4577-b974-ac6848674640"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="16" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="2" y="0" width="800" height="16" forecolor="#D0B48E" backcolor="#006699" uuid="96e66bc2-697b-4134-a8a3-c64c028c3679"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="753" y="0" width="40" height="16" forecolor="#FFFFFF" uuid="a42e3092-c93a-4473-ab0c-33411e8cf305"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Verdana" size="8" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="673" y="0" width="80" height="16" forecolor="#FFFFFF" uuid="14c84631-7d2c-4e74-8a01-2bc1e8605ec6"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Verdana" size="8" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="0" width="197" height="16" forecolor="#FFFFFF" uuid="66256042-cfad-43f8-b97b-fc442a98ffab"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Verdana" size="8" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

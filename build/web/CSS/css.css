@@ -1,0 +1,202 @@
+﻿/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 5/04/2014, 01:44:40 PM
+    Author     : Márcel
+*/
+
+header,.isos{
+        background-color: #238276;	
+}
+.solicitudes{
+        background-color: #128987;	
+}
+.informes{
+	background-color: #596548;       
+}
+.usuarios{       	
+        background-color: #fc7323;    
+}
+.respuestas{       	
+        background-color: #59b548;    
+}
+.revisiones {		
+        background-color: #FFa200;  
+}
+.sesion, .blanco {
+        border: thin solid #000;		
+        background-color: #fff;
+}
+td{
+    text-align: center;  
+    font: 12px verdana;       
+}
+body,.verdesena{	
+    text-align: center;
+    background: #65827a;   
+}
+.letra {
+    font-family: verdana;    
+}
+p,label{
+        font: 12px verdana;
+        text-align: center;
+        padding: 10px;        
+}
+input[type="button"],
+input[type="submit"],
+input[type="reset"]{
+	width: 200px;
+	height: 30px;
+	font-variant: normal;
+        cursor: pointer;
+        border: thin solid #7f7f7f;
+        font-weight: bold;  
+        background-color: #c0c0c0;
+}
+.blanco2{
+    background-color: #f1f1f1;
+}
+.sub1,.sub2,.sub3{
+    background-color: #c0c0c0; 
+    border: thin solid #7f7f7f;
+    color: #000;
+    height: 30px;    
+}
+.sub1:hover{
+    background: #009015;
+}
+.sub2:hover{
+    background:  #fc7323;
+}
+.sub3:hover{
+   background:  #7f7f7f;
+}
+.bnav,.t2{
+    color: #000;
+    background: none;
+}
+.bnav:hover{
+    background: #c0c0c0;
+    cursor: pointer;
+}
+aside {
+	float: right;
+	text-align: center;
+}
+section {
+	font: 12px Verdana;	    
+}
+input,select{
+	height: 20px;
+	width: 200px;       
+	font-family: verdana;
+	font-size: 12px;	
+}
+footer{	
+    font: 9px verdana;
+    padding: 10px;    
+}   
+li{	
+	display: inline;
+        color: #59b548;      	
+	list-style-position: inside;
+	margin-right: 10px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	padding-right: 5px;	
+}
+a:link,a:visited{
+    text-decoration: none;
+    font: 14px verdana;
+    color: #66BC50;
+}
+a:hover{
+    font: 16px verdana;
+}
+.op1:hover,.sub1:hover,.sub2:hover,.sub3:hover{
+    color: #f1f1f1;
+     cursor: pointer;
+}
+.op1:hover{
+    background: #238276;
+}
+.block{
+    background: none;
+}
+input[type="radio"],input[type="checkbox"]{
+    height: 20px;
+    width:  20px;
+    margin-top: 0px;    
+}
+.letra2{
+    font: 11px verdana;
+    font-weight: bold;
+}
+h1,h2,h3,h4,h5,h6{
+    padding: 0px;
+    margin: 0px;
+}
+.icon1{
+    border: thin solid #000 ;
+    width: 60px;
+    height: 60px; 
+}
+.fil{
+    background: #fff;
+    border: thin solid #c0c0c0 ;
+    vertical-align: central;
+}
+article{
+      	float: left;
+	width: 660px;
+	margin: 20px; 
+	padding: 10px;
+    	margin:  5px;
+    	height: 100px;
+	width: 800px;       
+	font-family: verdana;
+	font-size: 12px;	
+        background: #FFFFFF ;
+        border: thin solid #000 ;
+}   
+th{
+     background-color: #FFa200; 
+    width: 150px;
+}
+.block2,.notext {
+ background: none;
+ border: none;
+}
+.membrete1{
+    font-size: 10px;
+}
+div{
+    font: 16px verdana;
+}
+img:hover,.sub1,sub2,sub3{
+    cursor: pointer;
+}
+.sub1[disabled],.sub2[disabled],.sub3[disabled],.op1[disabled]{
+    background-color: #65827a; 
+}
+input[type="file"]{
+    width: 400px;
+    color: #0ff;
+}
+nav,section,aside,div,.fondo {    
+	padding-left: 10px;
+	padding-right: 10px;
+        background: #eaecdf;
+        margin-bottom: 5px;
+	border: thin solid #c0c0c0;
+        align: center;
+}
+table{        
+        margin: 5px;
+	padding: 5px;
+	border: thin solid #c0c0c0;
+}

@@ -1,0 +1,73 @@
+<%-- 
+    Document   : Rol
+    Created on : 19/05/2014, 02:43:48 PM
+    Author     : ADMIN
+--%>
+
+<%@page import="ISOSPQRSFDB.Consultas"%>
+<%@page import="Gestion.Gestion"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">          
+        <link href="../../../IMAGES/logo.png" type="image/x-icon" rel="shortcut icon" />
+        <title>Roles</title>
+         <style>
+            @import "../../../CSS/css.css";
+        </style>
+    </head>
+    <body>
+         <%
+                if(request.getParameter("validacion")==null){%>
+                <center>
+                    <table class="fondo" style="margin-top: 200px">
+                        <tr>
+                            <td>
+                                <img src="http://biblioteca2.uc3m.es/Leganes/sinlugaradudas/wp-content/uploads/2012/10/Error-s%C3%ADmbolo.png" width="50">                            
+                            </td>
+                            <td>
+                                <h3>Por favor Inicie Sesión</h3>
+                                <input type="button" class="op1" style="width: 100px" value="aceptar" onclick="document.location='../../../Sesion/F_Sesion.jsp'">
+                            </td>                        
+                        </tr>
+                    </table>
+                </center>   
+                <%}else{
+                %>
+        <center>
+            <%            
+            Gestion gestion= new Gestion();      
+        %>
+            <div class="usuarios"> 
+            <header style="float: none ">
+                <img src="../../../IMAGES/isospqrsf.png" width="100" onClick="document.location = 'index.html'" align="center" alt="LOGO"/>         
+            </header>            
+            <table>             
+            <tr>
+                <td class="sub2" onClick="document.location = '../../../Sesion/F_Sesion.jsp'">
+                    <img src="../../../IMAGES/atras.png" width="30" title="Volver a la Pagina Principal"  alt="atras"/>
+                </td> 
+                <%if(gestion.privilegio(1, gestion.seguimiento(), "Crear")==1){%>
+                <td>
+                    <form action="F_Rol.jsp" method="post">
+                        <input type="hidden" name="validacion" id="validacion" value="<%=request.getParameter("password")%>">
+                        <input type="submit" class="sub3" value="NUEVO ROL" />  
+                    </form>
+                </td>
+                <%}%>
+                <%if(gestion.privilegio(1, gestion.seguimiento(), "Consultar")==1){%>
+                <td>
+                    <form action="B_Rol.jsp" method="post">
+                        <input type="hidden" name="validacion" id="validacion" value="<%=request.getParameter("password")%>">
+                        <input type="submit" class="sub3" value="MIS ROLES" />  
+                    </form>
+                </td>
+                <%}%>
+            </tr>   
+            </table>
+            </div> 
+    </center>  
+             <%}%>
+    </body>
+</html>
