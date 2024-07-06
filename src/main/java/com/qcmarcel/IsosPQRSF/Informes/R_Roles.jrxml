@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Roles" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="33ae98dc-5175-43e3-99ce-49b815bc20cb">
+	<property name="ireport.zoom" value="1.2396694214876032"/>
+	<property name="ireport.x" value="23"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     privilegios.`Crear` AS privilegios_Crear,
+     privilegios.`Actualizar` AS privilegios_Actualizar,
+     privilegios.`Estado` AS privilegios_Estado,
+     privilegios.`Consultar` AS privilegios_Consultar,
+     rol.`rol_nombre` AS rol_rol_nombre,
+     modulo.`mod_Nombre` AS modulo_mod_Nombre,
+     privilegios.`fk_mod_Codigo` AS privilegios_fk_mod_Codigo
+FROM
+     `rol` rol RIGHT OUTER JOIN `privilegios` privilegios ON rol.`rol_Codigo` = privilegios.`fk_rol_Codigo`
+     LEFT OUTER JOIN `modulo` modulo ON privilegios.`fk_mod_Codigo` = modulo.`mod_Codigo`]]>
+	</queryString>
+	<field name="privilegios_Crear" class="java.lang.Integer"/>
+	<field name="privilegios_Actualizar" class="java.lang.Integer"/>
+	<field name="privilegios_Estado" class="java.lang.Integer"/>
+	<field name="privilegios_Consultar" class="java.lang.Integer"/>
+	<field name="rol_rol_nombre" class="java.lang.String"/>
+	<field name="modulo_mod_Nombre" class="java.lang.String"/>
+	<field name="privilegios_fk_mod_Codigo" class="java.lang.Integer"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#238276" uuid="59ac20d5-c19a-4173-95e5-7a62e84d611c"/>
+				<staticText>
+					<reportElement x="20" y="20" width="247" height="55" forecolor="#FFFFFF" uuid="d323573e-34f3-4c09-8bc2-2aac61c5eb59"/>
+					<textElement textAlignment="Center">
+						<font fontName="Verdana" size="36" isBold="true" isItalic="false"/>
+					</textElement>
+					<text><![CDATA[ROLES]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="293" y="63" width="282" height="23" forecolor="#FFFFFF" backcolor="#FFCCCC" uuid="c181f201-37b7-4d23-b4eb-715406363ce7"/>
+					<textElement>
+						<font fontName="Verdana" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Roles  y privilegios del sistema]]></text>
+				</staticText>
+				<image>
+					<reportElement x="401" y="0" width="80" height="50" uuid="d928a1fb-da91-4b2c-be86-6ea9338603cd"/>
+					<imageExpression><![CDATA["F:\\ELVER\\MAQC\\SI\\ISOS_PQRSF\\web\\images\\isospqrsf.jpg"]]></imageExpression>
+				</image>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="12"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="35d93f69-c54c-4a99-a14e-e7e1be98f239"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="158" y="1" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="81a9465a-1707-4a48-a18f-78aa12cef431"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Crear]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="237" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="dd51f413-f413-4be8-978d-dc8471e6af23"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Actualizar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="395" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="de57c05e-df21-42c3-80f3-df52fd736282"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Consultar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="316" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="af6a96ca-369a-4138-a55b-01ba554b07a2"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Esado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="213da314-0859-43de-9001-2eedaab00145"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre del rol]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="79" y="1" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="4e267d78-60e9-4063-865b-08e0efdaac57"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre del modulo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="474" y="1" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="39970095-6815-4c1d-91b2-3cb2ac6eb547"/>
+				<textElement textAlignment="Center">
+					<font fontName="Verdana" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pribilegio]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="e3bdc255-f12d-4a58-bd28-2a03b4aec7e6"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="79" height="20" uuid="b8f1947f-1ccc-42cc-b27d-d37b04e8c7fa"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{privilegios_Crear}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="79" y="0" width="79" height="20" uuid="7a41fc60-ddbf-4a52-a7eb-54545631e1e7"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{privilegios_Actualizar}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="158" y="0" width="79" height="20" uuid="a30fffa1-0cd2-4eee-8c8f-401acf24c877"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{privilegios_Estado}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="237" y="0" width="79" height="20" uuid="d4f39b9f-4a9c-4b7a-a503-417ce3bf4235"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{privilegios_Consultar}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="316" y="0" width="79" height="20" uuid="e18de14b-112b-46e4-86dc-68fd16f645db"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rol_rol_nombre}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="395" y="0" width="79" height="20" uuid="2f3ea92b-1bb4-4d8d-a38c-6cf3d91e8b53"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{modulo_mod_Nombre}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="474" y="0" width="79" height="20" uuid="b08e3c0c-2394-4d01-b0de-3ef6de06d151"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{privilegios_fk_mod_Codigo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="e8005300-599b-48db-aa39-4a741d8a4171"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="3186470e-5e43-4eb9-a009-5176c2345343"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="d4435561-9a6c-4f67-ab0b-d179ecb65e94"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

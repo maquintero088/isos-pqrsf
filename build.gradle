@@ -1,0 +1,30 @@
+apply plugin: 'java'
+apply plugin: 'jacoco'
+apply plugin: 'war'
+
+    group = 'com.qcmarcel'
+repositories {
+    mavenCentral()
+    flatDir {
+       dirs("libs", "javaee-endorsed-api-6.0", "CopyLibs")
+    }
+}
+
+dependencies {
+    providedCompile 'jakarta.platform:jakarta.jakartaee-web-api:10.0.0'
+    
+    implementation 'org.netbeans.modules:org-netbeans-modules-java-j2seproject-copylibstask'
+    implementation 'jasperreports:jasperreports:5.5.2'
+    implementation 'jasperreports:jasperreports-applet:5.5.2'
+    implementation 'jasperreports:jasperreports-fonts:5.5.2'
+    implementation 'jasperreports:jasperreports-functions:5.5.2'
+    implementation 'jasperreports:jasperreports-javaflow:5.5.2'
+    implementation 'javax.mail:mail'
+    implementation 'mysql:mysql-connector-java:5.1.30'
+    implementation 'javax:javaee-doc-api'
+    implementation 'javax.annotation:javax.annotation'
+    implementation 'javax.xml.bind:jaxb-api-osgi'
+    implementation 'javax.xml.ws:webservices-api-osgi'
+    
+    testImplementation     'junit:junit:4.13'
+}
